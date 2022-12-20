@@ -24,10 +24,10 @@ namespace Everys.BL.Services
         {
             var parameters = HttpUtility.ParseQueryString(string.Empty);
 
-            if (!string.IsNullOrWhiteSpace(skip?.ToString()))
-                parameters[nameof(skip)] = skip?.ToString();
-            if (!string.IsNullOrWhiteSpace(take?.ToString()))
-                parameters[nameof(take)] = take?.ToString();
+            if (skip > 0)
+                parameters[nameof(skip)] = skip.ToString();
+            if (take > 0)
+                parameters[nameof(take)] = take.ToString();
             if (!string.IsNullOrWhiteSpace(expand))
                 parameters[nameof(expand)] = expand;
             if (!string.IsNullOrWhiteSpace(filter))
